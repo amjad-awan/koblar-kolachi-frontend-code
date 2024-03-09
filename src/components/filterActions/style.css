@@ -1,0 +1,89 @@
+.custom-checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .custom-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkmark {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 3px;
+    margin-right: 8px;
+  }
+  
+  .custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
+    content: "\2713"; /* Unicode checkmark character */
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+  }
+
+/* Style the container for the custom radio buttons */
+.custom-radio {
+  display: block;
+  position: relative;
+  padding-left: 35px; /* Space for the radio button */
+  margin-bottom: 10px;
+  font-size: 16px;
+
+
+}
+
+/* Hide the default radio input */
+.custom-radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Style the custom radio button */
+.radiomark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff; /* Unselected background color */
+  border: 2px solid #ccc; /* Border color */
+  border-radius: 50%; /* Make it round */
+  transition: background-color 0.2s, border-color 0.2s; /* Smooth transitions */
+}
+
+/* Style the custom radio button when it's checked */
+.custom-radio input[type="radio"]:checked ~ .radiomark {
+  background-color: #5c5c5c; /* Selected background color */
+  border: 1px solid #5c5c5c; /* Border color when selected */
+}
+
+/* Style the inner dot (indicator) of the radio button */
+label{
+  cursor:pointer
+}
+.radiomark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-color: #fff; /* Indicator color */
+  border-radius: 50%; /* Make it round */
+}
+
+/* Show the inner dot (indicator) when the radio button is checked */
+.custom-radio input[type="radio"]:checked ~ .radiomark:after {
+  display: block;
+}
+
+

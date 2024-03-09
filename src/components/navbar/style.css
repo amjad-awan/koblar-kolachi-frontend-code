@@ -1,0 +1,158 @@
+.navbar-wrapper{
+    box-shadow: 0 -1px rgba(255, 255, 255, 0.25) inset
+}
+.navbar-wrapper:hover
+{
+background-color: #fff;
+}
+.navbar-wrapper:hover *
+{
+color: #5c5c5c !important
+}
+.submenu-item
+{
+    position: relative;
+}
+
+.submenu-item .submenu-list 
+{
+    position: absolute;
+    left: 0;
+    z-index: -999;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s linear;
+    transform: translateY(22px);
+    background-color: transparent;
+    padding: 30px 30px;
+    width: 200px;
+    border-left: 1px solid rgba(128, 128, 128, 0.237);
+    border-right: 1px solid rgba(128, 128, 128, 0.237);
+
+    border-bottom: 1px solid rgba(128, 128, 128, 0.237);
+
+
+}
+.submenu-item:hover .submenu-list{
+    background-color: #fff;
+    visibility: visible;
+    opacity: 1;
+    z-index: 999;
+}
+
+.link-style
+{
+    position: relative;
+}
+.link-style::after
+{
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom:0px;
+    height: 3px;
+    width: 0%;
+    background-color: #5c5c5c;
+    transition: all .3s linear;
+    transform: translateY(20px);
+  
+}
+.link-style:hover::after
+{
+  
+    width: 100%;
+
+}
+.submenu-child-item {
+    position: relative;
+}
+.submenu-child-item .submenu-child
+{
+    position: absolute;
+    left: 122%;
+    top: -10px;
+    z-index: -999;
+    visibility: hidden;
+    background-color: #fff;
+    opacity: 0;
+    transition: all .3s linear;
+    background-color: transparent;
+    padding: 25px;
+    width: 250px;
+    border: 2px solid rgba(128, 128, 128, 0.237);
+}
+
+.submenu-child-item:hover .submenu-child
+{
+    background-color: #fff;
+    top: -30px;
+    visibility: visible;
+    opacity: 1;
+    z-index: 999;
+}
+
+
+/* src/styles/accordion.css */
+
+/* src/styles/sidebar.css */
+
+.sidebar {
+    width: 90%;
+    height: 100vh;
+    background-color: #ffff;
+    color: white;
+    z-index: 110000 !important;
+    padding: 50px 0px 20px 20px;
+    transition: all .4s linear;
+    overflow-y: auto;
+    /* display: flex;
+    flex-direction: column; */
+  }
+  
+ 
+  .overlay
+  {
+    z-index: 3000;
+  }
+/* Add this CSS to your stylesheet */
+.with-fading-shadow {
+    position: relative;
+  }
+  
+  .with-fading-shadow::before,
+  .with-fading-shadow::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20px; /* Adjust the height as needed */
+  }
+  
+  .with-fading-shadow::before {
+    top: 0;
+    background: linear-gradient(to top, transparent, white); /* Fading color effect */
+
+  }
+  
+  .with-fading-shadow::after {
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, white); /* Fading color effect */
+
+  }
+
+
+  /* Add this CSS to your stylesheet */
+/* Add this CSS to your stylesheet */
+.fade-in {
+    opacity: 0;
+    transform: translateY(-10px); /* Start off-screen */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .fade-in.open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  
+  

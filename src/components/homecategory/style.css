@@ -1,0 +1,59 @@
+.cat-card img
+{
+    transition: all 3s linear;
+}
+.cat-card:hover img
+{
+   transform: scale(1.1);
+}
+
+.button-style {
+  position: relative;
+  min-width: 200px;
+  height: 55px;
+  text-align: center;
+  background: transparent;
+  margin: 10px;
+  text-transform: uppercase;
+  line-height: 55px;
+  color: #fff;
+  border: 2px solid #ffff;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 2px;
+  overflow: hidden;
+}
+
+.button-style span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  transition: 0s ease-in;
+
+}
+
+.button-style:hover span {
+  transition: 0.4s ease-in;
+  transform: translateY(-100%);
+  color:#363636
+}
+
+.button-style:before {
+  position: absolute;
+  content: "";
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  bottom: -250px;
+  left: 50%;
+  transition: 0.4s ease-in;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+
+.button-style:hover:before {
+  bottom: -150px;
+}

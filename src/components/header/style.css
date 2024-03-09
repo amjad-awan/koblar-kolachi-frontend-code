@@ -1,0 +1,84 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Set the desired carousel height */
+    overflow: hidden;
+  }
+  
+  .carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 2s;
+  }
+  
+  .slide-content {
+    text-align: center;
+    color: white;
+ 
+    z-index: 2;
+    opacity: 0;
+    transform: translateX(100px); /* Initial translation */
+    transition:  all 2s;
+  }
+  .carousel-slide.active .slide-content{
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .slide-content h2 {
+    font-size: 80px;
+    font-weight: 800;
+  }
+  
+ 
+  .slide-content p {
+    font-weight: 400;
+  }
+  
+  .carousel-slide.active .slide-content p{
+    opacity: 1;
+    transform: translateX(0);
+  }
+    
+
+  .slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.05);
+    transition: all 2s;
+  }
+  
+  .carousel-slide.active .slide-background {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .prev-button,
+  .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 3;
+  }
+  
+  .prev-button {
+    left: 10px;
+  }
+  
+  .next-button {
+    right: 10px;
+  }
+  

@@ -1,0 +1,24 @@
+.star-rating {
+    display: inline-block;
+    overflow: hidden;
+  }
+  
+  .star-rating-inner {
+    white-space: nowrap;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .star {
+    font-size: 1rem;
+    color: gold;
+    color: #36363688;
+    
+    margin-right: 2px;
+  }
+  .accordion-body
+  {
+    display: none
+  }
+  

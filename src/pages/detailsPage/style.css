@@ -1,0 +1,45 @@
+.product-details {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .photo-container {
+    position: relative;
+    height: 100%; /* Set your desired height */
+    overflow: hidden;
+  }
+  
+  .photo-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 30px; /* Add margin between photos */
+  }
+  
+  .dots {
+    position: fixed;
+    top:50%;
+    left:20px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap:10px;
+    margin-top: 10px; /* Add spacing above dots */
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border:3px solid rgba(128, 128, 128, 0.336);
+    border-radius: 50%;
+    margin: 0 5px; /* Add spacing between dots */
+    cursor: pointer;
+    transition: all .5s linear;
+  }
+  .dot.active {
+    background-color: #5C5C5C; /* Change color for active dot */
+  }
+  

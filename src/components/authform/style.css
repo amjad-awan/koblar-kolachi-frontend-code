@@ -1,0 +1,25 @@
+.auth_input
+{
+    border:2px solid #e7e7e7
+}
+
+.auth_input:focus{
+    border:2px solid #36363696
+}
+
+
+.auth_input::placeholder
+{
+    padding: 0px 10px;
+    transition: all .5s linear;
+    z-index: 99;
+    font-size: 18px;
+    text-transform: uppercase;
+
+}
+.auth_input:focus::placeholder{
+    transform: translateY(-15px);
+
+}
+
+

@@ -1,0 +1,17 @@
+.search-input
+{
+font-size: 22px;
+font-weight: 600;
+}
+.search-input::placeholder
+{
+font-size: 22px;
+font-weight: 600;
+}
+.search-input:focus{
+    border:none
+}
+.search-input:focus::placeholder{
+    transform: translateY(0px);
+
+}
