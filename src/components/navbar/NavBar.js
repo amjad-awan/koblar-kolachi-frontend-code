@@ -57,7 +57,7 @@ const NavBar = ({
               pathname !== "/" || scrollBg ? "#5c5c5c" : "#fff"
             }] text-[30px] font-[500] border-1  border-[#fff] cursor-pointer`}
           >
-            <Link to="/acount">
+            <Link to="/account">
               <AiOutlineUser />
             </Link>
           </div>

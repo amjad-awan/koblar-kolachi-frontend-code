@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import axios from "axios";
@@ -7,6 +7,7 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [token, setToken] = useState("");
+  const [isLoading, setIsLoading]= useState(true)
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const navigate = useNavigate();
@@ -48,10 +49,12 @@ const AuthProvider = ({ children }) => {
       return data.success;
     } catch (error) {
       setIsUserLoggedIn(error.response.data.success);
+    }finally{
+      setIsLoading(false)
     }
   };
 
-  useMemo(() => {
+  useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user && user.token) {
       setUser(user.user);
@@ -69,6 +72,7 @@ const AuthProvider = ({ children }) => {
         user,
         setUser,
         setToken,
+        isLoading,
         loginUser,
       }}
     >

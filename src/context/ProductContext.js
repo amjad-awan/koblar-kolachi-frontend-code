@@ -21,6 +21,8 @@ const ProductsProvider = ({ children }) => {
     showSize: "",
     quantity: 1,
   });
+  console.log('cartData',cartData)
+
   const [cartStepper, setCartStepper] = useState({
     paymentMethod: null,
   });
@@ -61,12 +63,13 @@ const ProductsProvider = ({ children }) => {
     }
   };
 
-  const addToCart = async (product) => {
+  const addToCart = async (product,shoesSize) => {
     const newCartItem = {
       ...cartData,
-      ...product, // Assuming 'product' is an object you want to add to the cart
+      ...product,
+      showSize:shoesSize // Assuming 'product' is an object you want to add to the cart
     };
-    console.log("newCartItem", newCartItem);
+    console.log("product", product);
     setCart([...cart, newCartItem]);
     localStorage.setItem("cart", JSON.stringify([...cart, newCartItem]));
   };

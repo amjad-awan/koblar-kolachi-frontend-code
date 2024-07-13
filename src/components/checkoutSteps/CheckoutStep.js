@@ -43,7 +43,6 @@ const CheckOutSteps = ({ steps }) => {
       setCartStepper({...values,...cartStepper});
       markStepAsCompleted(activeStep);
       handleNext();
-      console.log(" 46",activeStep === steps.length - 1)
 
       if(activeStep === steps.length - 1){
         createOrders({...values,...cartData,products:cart})

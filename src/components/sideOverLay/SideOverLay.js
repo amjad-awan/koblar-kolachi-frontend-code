@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const SideOverLay = ({ open, setOpen }) => {
   const { cart, removeFromCart } = useProducts();
+  console.log("cart", cart)
 
 
   const handleRemove = (producToRemove) => {
@@ -79,7 +80,7 @@ const SideOverLay = ({ open, setOpen }) => {
                               <div className="flex gap-5">
                                 <div className="h-[140px] w-[140px]">
                                   <img
-                                    src={`${process.env.REACT_APP_BASE_URL}product/get-featured-product-photos/${data._id}/photos/0`}
+                                    src={`/api/v1/product/get-featured-product-photos/${data._id}/photos/0`}
                                     className="w-[100%] h-[100%] object-cover"
                                     alt=""
                                   />
@@ -89,7 +90,7 @@ const SideOverLay = ({ open, setOpen }) => {
                                     {data.productname}
                                   </p>
                                   <p className="text-[15px] text-[#5c5c5c] font-[500] mt-2">
-                                  {data.showSize}
+                                  {data.showSize.value}
                                   </p>
                                   <p className="text-[15px] text-[#5c5c5c] font-[500] mt-2">
                                     Rs.{data.newprice} PKR

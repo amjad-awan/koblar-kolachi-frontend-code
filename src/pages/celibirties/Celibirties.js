@@ -5,7 +5,6 @@ import axios from "axios";
 
 const Celibirties = () => {
   const [CelebiritiesCard, setCelebiritiesCard] = useState([]);
-  console.log("CelebiritiesCard 8", CelebiritiesCard);
   useEffect(() => {
     const getCelebirities = async () => {
       try {

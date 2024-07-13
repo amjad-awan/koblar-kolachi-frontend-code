@@ -5,12 +5,27 @@ import { useProducts } from "../../context/ProductContext";
 import { Link } from "react-router-dom";
 import FeatureCard from "../../components/featurecard/FeatureCard";
 import FilterDropDown from "../../components/filterDropDown/FilterDropDown";
+import axios from "axios";
 const Products = () => {
   const { currentPage, setCurrentPage, products, loading } = useProducts();
+  console.log("products",products)
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage === 0 ? 1 : newPage);
   };
+
+  const getCategory=async(catID)=>{
+    try {
+
+      const res= await axios("/api/vi/category/single-category/"+catID)
+      return res
+      
+    } catch (error) {
+      
+    }
+
+  }
+
   return (
     <Layout>
       <div className="mt-[133px] container md:max-w-[1380px] px-[20px] mx-auto">
@@ -39,12 +54,12 @@ const Products = () => {
                 return (
                   <div key={index} className="col-span-1 w-[100%]" >
                     <Link
-                      to={`/collection/${data.productcategory.name}/products/${data._id}`}
+                      to={`/collection/${data.productcategory}/products/${data._id}`}
                     >
                       <FeatureCard
                         data={data}
                         index={index}
-                        //   scrollCard={scrollCard}
+                        //scrollCard={scrollCard}
                       />
                     </Link>
                   </div>

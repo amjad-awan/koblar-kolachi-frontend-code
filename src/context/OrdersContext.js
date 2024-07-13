@@ -23,9 +23,8 @@ const OrdersProvider = ({ children }) => {
       ...others,
       country: others.country.value,
       products: productData,
-      orderBy: user.user._id,
+      orderBy: user?.user?._id,
     };
-    console.log("combinedData", combinedData);
 
     try {
       await axios.post("/api/v1/orders/create-order", combinedData);

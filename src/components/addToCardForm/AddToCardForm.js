@@ -20,16 +20,17 @@ const AddToCardForm = () => {
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (values) => {
-      setCartData({ ...cartData, showSize: values.showSize });
-      handleCartCart(singleProduct);
+    onSubmit: ({showSize}) => {
+      console.log('24',showSize)
+      setCartData({ ...cartData, showSize });
+      handleCartCart(singleProduct,showSize);
     },
   });
 
   //Function to add a product to the cart
-  const handleCartCart = (product) => {
+  const handleCartCart = (product,showSize) => {
     try {
-      addToCart(product);
+      addToCart(product,showSize);
       toast.success("Product Added Successfully!");
     } catch (error) {
       toast.error("error while adding product!");
@@ -89,6 +90,9 @@ const AddToCardForm = () => {
           styles={customStyle}
           value={formik.values.showSize}
           onChange={(option) => formik.setFieldValue("showSize", option)}
+          // value={options.find(option => option.value === formik.values.showSize)} // Ensure correct value is selected
+  // onChange={(option) => formik.setFieldValue("showSize", option ? option.value : "")} // Handle option change correctly
+
         />
         {formik.touched.showSize && formik.errors.showSize ? (
           <div className="text-red-500">{formik.errors.showSize}</div>

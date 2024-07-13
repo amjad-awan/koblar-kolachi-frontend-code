@@ -43,7 +43,7 @@ const Checkouts = () => {
 
                       
                         <img
-                          src={`${process.env.REACT_APP_BASE_URL}product/get-featured-product-photos/${data._id}/photos/0`}
+                          src={`/api/v1/product/get-featured-product-photos/${data._id}/photos/0`}
                           className="w-[100%] rounded-[10px] h-[100%] object-cover"
                           alt=""
                         />

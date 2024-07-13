@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.css";
 function UsersOrders({ orders }) {
-  console.log("orders", orders);
   return (
     <div className="table-container">
       <table className="table">
@@ -49,7 +48,7 @@ function UsersOrders({ orders }) {
                     className="h-[100px]  w-[100px]"
                   >
                     <img
-                      src={`${process.env.REACT_APP_BASE_URL}product/get-featured-product-photos/${product.product._id}/photos/0`}
+                      src={`/api/v1/product/get-featured-product-photos/${product.product._id}/photos/0`}
                       className="w-[100%] h-[100%] object-cover"
                       alt=""
                     />
