@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import FeatureCard from "../../components/featurecard/FeatureCard";
 import FilterDropDown from "../../components/filterDropDown/FilterDropDown";
 import axios from "axios";
+import Loader from "../../components/loader/Loader";
 const Products = () => {
   const { currentPage, setCurrentPage, products, loading } = useProducts();
   console.log("products",products)
@@ -48,7 +49,7 @@ const Products = () => {
           </div>
           <div className="w-[100%] mt-[40px] lg:mt-[70px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[20px]">
             {loading ? (
-              <p className="text-[22px] font-[700]">Loading ....</p>
+              <Loader/>
             ) : (
               products.map((data, index) => {
                 return (

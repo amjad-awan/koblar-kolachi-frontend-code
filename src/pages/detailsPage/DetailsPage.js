@@ -8,7 +8,7 @@ import RviewsSection from "../../components/reviewssection/ReviewsSection";
 import Loader from "../../components/loader/Loader";
 const DetailsPage = () => {
   const { pId } = useParams();
-  const { getSingleProduct, singleProduct,loading } = useProducts();
+  const { getSingleProduct, singleProduct, loading } = useProducts();
   const photoContainerRef = useRef(null);
   const [activeDot, setActiveDot] = useState(0);
   const photosRef = useRef([]);
@@ -56,63 +56,62 @@ const DetailsPage = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto mt-[160px]">
+      <div className="container mx-auto mt-[160px]"> {loading ?
+        <Loader /> :
         <div className="w-[100%] grid grid-cols-1 md:grid-cols-12 mx-auto gap-[20px]">
-          {loading ? (
-            <Loader/>
-          ) : (
-            <>
-              <div className="w-[100%] flex flex-col sm:col-span-12 md:col-span-7">
-                <div className="dots">
-                  {Array.from({ length: 4 }).map((_, index) => (
-                    <span
+          <>
+            <div className="w-[100%] flex flex-col sm:col-span-12 md:col-span-7">
+              <div className="dots">
+                {Array.from({ length: 4 }).map((_, index) => (
+                  <span
+                    key={index}
+                    className={`dot ${index === activeDot ? "active" : ""}`}
+                    onClick={() => handleDotClick(index)}
+                  ></span>
+                ))}
+              </div>
+
+              <div className="photo-container" ref={photoContainerRef}>
+                {[1, 2, 3, 4].map((data, index) => {
+                  return (
+                    <img
+                      src={`${process.env.REACT_APP_BASE_URI}product/get-featured-product-photos/${pId}/photos/${index}`}
+                      className="w-[100%] photo h-[100%] object-cover"
+                      alt=""
+                    />
+                  );
+                })}
+              </div>
+
+              <RviewsSection reviews={singleProduct.reviews} />
+            </div>
+            <div className="sm:col-span-12 md:col-span-5 md:px-[50px]">
+              <AddToCardForm />
+              <div className="sticky top-[113px]">
+                <p className="mt-[30px] font-[500] text-[19px] text-[#5c5c5c]">
+                  {singleProduct.productdescription}
+                </p>
+
+                <p className="font-[600] text-[22px] text-[#5c5c5c] my-[40px]">
+                  Features
+                </p>
+
+                {singleProduct?.productfeatures?.map((data, index) => {
+                  return (
+                    <p
                       key={index}
-                      className={`dot ${index === activeDot ? "active" : ""}`}
-                      onClick={() => handleDotClick(index)}
-                    ></span>
-                  ))}
-                </div>
-
-                <div className="photo-container" ref={photoContainerRef}>
-                  {[1, 2, 3, 4].map((data, index) => {
-                    return (
-                      <img
-                        src={`${process.env.REACT_APP_BASE_URI}product/get-featured-product-photos/${pId}/photos/${index}`}
-                        className="w-[100%] photo h-[100%] object-cover"
-                        alt=""
-                      />
-                    );
-                  })}
-                </div>
-
-                <RviewsSection reviews={singleProduct.reviews} />
+                      className="mt-[10px] block font-[500] text-[19px] text-[#5c5c5c]"
+                    >
+                      {data}
+                    </p>
+                  );
+                })}
               </div>
-              <div className="sm:col-span-12 md:col-span-5 md:px-[50px]">
-                <AddToCardForm />
-                <div className="sticky top-[113px]">
-                  <p className="mt-[30px] font-[500] text-[19px] text-[#5c5c5c]">
-                    {singleProduct.productdescription}
-                  </p>
+            </div>
+          </>
 
-                  <p className="font-[600] text-[22px] text-[#5c5c5c] my-[40px]">
-                    Features
-                  </p>
-
-                  {singleProduct?.productfeatures?.map((data, index) => {
-                    return (
-                      <p
-                        key={index}
-                        className="mt-[10px] block font-[500] text-[19px] text-[#5c5c5c]"
-                      >
-                        {data}
-                      </p>
-                    );
-                  })}
-                </div>
-              </div>
-            </>
-          )}
         </div>
+      }
       </div>
     </Layout>
   );
