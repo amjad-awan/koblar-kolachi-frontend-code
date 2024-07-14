@@ -5,6 +5,7 @@ import AddToCardForm from "../../components/addToCardForm/AddToCardForm";
 import Layout from "../../components/layout/Layout";
 import "./style.css";
 import RviewsSection from "../../components/reviewssection/ReviewsSection";
+import Loader from "../../components/loader/Loader";
 const DetailsPage = () => {
   const { pId } = useParams();
   const { getSingleProduct, singleProduct,loading } = useProducts();
@@ -58,7 +59,7 @@ const DetailsPage = () => {
       <div className="container mx-auto mt-[160px]">
         <div className="w-[100%] grid grid-cols-1 md:grid-cols-12 mx-auto gap-[20px]">
           {loading ? (
-            <p className="text-[22px] font-[700]">Loading ....</p>
+            <Loader/>
           ) : (
             <>
               <div className="w-[100%] flex flex-col sm:col-span-12 md:col-span-7">
