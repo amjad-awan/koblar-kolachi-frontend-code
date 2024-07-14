@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "homepage":"http://amjad-awan.github.io/koblar-kolachi-frontend-code",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.17",
