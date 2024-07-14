@@ -2,7 +2,7 @@
   "homepage":"https://amjad-awan.github.io/koblar-kolachi-frontend-code",
   "name": "client",
   "version": "0.1.0",
-  "private": true,
+"private": false,
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@testing-library/jest-dom": "^5.17.0",
