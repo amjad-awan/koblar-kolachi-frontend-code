@@ -1,7 +1,7 @@
 {
+  "homepage":"http://amjad-awan.github.io/koblar-kolachi-frontend-code",
   "name": "client",
   "version": "0.1.0",
-  "homepage":"http://amjad-awan.github.io/koblar-kolachi-frontend-code",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.17",
@@ -22,6 +22,7 @@
     "tw-elements": "^1.0.0-beta3",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"
+
   },
   "scripts": {
     "start": "react-scripts start",
