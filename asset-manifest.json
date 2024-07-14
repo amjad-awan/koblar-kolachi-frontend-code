@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/koblar-kolachi-frontend-code/static/css/main.ab94f790.css",
-    "main.js": "/koblar-kolachi-frontend-code/static/js/main.7e930557.js",
+    "main.js": "/koblar-kolachi-frontend-code/static/js/main.175b8004.js",
     "static/js/905.4f07612c.chunk.js": "/koblar-kolachi-frontend-code/static/js/905.4f07612c.chunk.js",
     "static/js/320.6cd3be80.chunk.js": "/koblar-kolachi-frontend-code/static/js/320.6cd3be80.chunk.js",
     "static/media/08_webm.webm": "/koblar-kolachi-frontend-code/static/media/08_webm.232e88d651d3cf3a78cb.webm",
@@ -15,12 +15,12 @@
     "static/media/futura light bt.ttf": "/koblar-kolachi-frontend-code/static/media/futura light bt.ead7282f8edac7904e53.ttf",
     "index.html": "/koblar-kolachi-frontend-code/index.html",
     "main.ab94f790.css.map": "/koblar-kolachi-frontend-code/static/css/main.ab94f790.css.map",
-    "main.7e930557.js.map": "/koblar-kolachi-frontend-code/static/js/main.7e930557.js.map",
+    "main.175b8004.js.map": "/koblar-kolachi-frontend-code/static/js/main.175b8004.js.map",
     "905.4f07612c.chunk.js.map": "/koblar-kolachi-frontend-code/static/js/905.4f07612c.chunk.js.map",
     "320.6cd3be80.chunk.js.map": "/koblar-kolachi-frontend-code/static/js/320.6cd3be80.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab94f790.css",
-    "static/js/main.7e930557.js"
+    "static/js/main.175b8004.js"
   ]
 }
