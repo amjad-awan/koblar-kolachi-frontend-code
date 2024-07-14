@@ -48,7 +48,7 @@ function UsersOrders({ orders }) {
                     className="h-[100px]  w-[100px]"
                   >
                     <img
-                      src={`/api/v1/product/get-featured-product-photos/${product.product._id}/photos/0`}
+                      src={`${process.env.REACT_APP_BASE_URI}product/get-featured-product-photos/${product.product._id}/photos/0`}
                       className="w-[100%] h-[100%] object-cover"
                       alt=""
                     />

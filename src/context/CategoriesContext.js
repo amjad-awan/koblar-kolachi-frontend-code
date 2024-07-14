@@ -9,7 +9,7 @@ const CategoriesProvider = ({ children }) => {
   const getCategories = async () => {
     try {
       setLoading(true)
-      const { data } = await axios.get("/api/v1/category/get-categories");
+      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URI}category/get-categories`);
       setCategories(data?.categories);
       setLoading(false)
     } catch (error) {

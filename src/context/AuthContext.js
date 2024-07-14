@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const registerUser = async (userData) => {
     try {
-      const { data } = await axios.post("/api/v1/auth/create-user", userData);
+      const { data } = await axios.post(`${process.env.REACT_APP_BASE_URI}auth/create-user`, userData);
       toast.success("Registered Successfully!");
 
       return data.success;
@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
   };
   const loginUser = async (userData) => {
     try {
-      const { data } = await axios.post("/api/v1/auth/login-user", userData);
+      const { data } = await axios.post(`${process.env.REACT_APP_BASE_URI}auth/login-user`, userData);
       setIsUserLoggedIn(data.success);
       if (data) {
         setToken(data.token);
@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
   };
   const checkLogin = async () => {
     try {
-      const { data } = await axios.post("/api/v1/auth/protected-route", null, {
+      const { data } = await axios.post(`${process.env.REACT_APP_BASE_URI}auth/protected-route`, null, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

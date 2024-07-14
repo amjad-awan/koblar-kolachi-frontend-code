@@ -76,7 +76,7 @@ const DetailsPage = () => {
                   {[1, 2, 3, 4].map((data, index) => {
                     return (
                       <img
-                        src={`/api/v1/product/get-featured-product-photos/${pId}/photos/${index}`}
+                        src={`${process.env.REACT_APP_BASE_URI}product/get-featured-product-photos/${pId}/photos/${index}`}
                         className="w-[100%] photo h-[100%] object-cover"
                         alt=""
                       />

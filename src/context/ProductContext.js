@@ -21,7 +21,6 @@ const ProductsProvider = ({ children }) => {
     showSize: "",
     quantity: 1,
   });
-  console.log('cartData',cartData)
 
   const [cartStepper, setCartStepper] = useState({
     paymentMethod: null,
@@ -30,7 +29,7 @@ const ProductsProvider = ({ children }) => {
   const getFeaturesproducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get("/api/v1/product/get-featured-products");
+      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URI}product/get-featured-products`);
       setFeaturesProducts(data?.products);
       setLoading(false);
     } catch (error) {
@@ -41,7 +40,7 @@ const ProductsProvider = ({ children }) => {
   const getSingleProduct = async (pId) => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/get-single-product/${pId}`);
+      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URI}product/get-single-product/${pId}`);
       setSingleProduct(data?.product);
       setLoading(false);
     } catch (error) {
@@ -54,7 +53,7 @@ const ProductsProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `/api/v1/product/get-specific-category-products/${cId}`
+        `${process.env.REACT_APP_BASE_URI}product/get-specific-category-products/${cId}`
       );
       setSpecificCategoryProducts(data?.products);
       setLoading(false);
@@ -69,7 +68,6 @@ const ProductsProvider = ({ children }) => {
       ...product,
       showSize:shoesSize // Assuming 'product' is an object you want to add to the cart
     };
-    console.log("product", product);
     setCart([...cart, newCartItem]);
     localStorage.setItem("cart", JSON.stringify([...cart, newCartItem]));
   };
@@ -102,7 +100,7 @@ const ProductsProvider = ({ children }) => {
       });
       try {
         const { data } = await axios.get(
-          `/api/v1/product/filter-and-pagination?${queryParams}`
+          `${process.env.REACT_APP_BASE_URI}product/filter-and-pagination?${queryParams}`
         );
 
         if (data) {

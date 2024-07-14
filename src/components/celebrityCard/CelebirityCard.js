@@ -11,7 +11,7 @@ const CelebirityCard = ({ data }) => {
         return (
           <div className="h-[100%] w-[100%] text-center mb-[40px] ">
             <img
-              src={`/api/v1/celibiriest/get-celibirty-photos/${data._id}/photos/${index}`}
+              src={`${process.env.REACT_APP_BASE_URI}celibiriest/get-celibirty-photos/${data._id}/photos/${index}`}
               alt=""
               key={index}
               className="h-[100%] w-[100%] mx-auto object-cover"

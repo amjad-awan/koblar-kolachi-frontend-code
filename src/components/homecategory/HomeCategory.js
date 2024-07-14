@@ -5,7 +5,7 @@ const HomeCategory = ({ data }) => {
   return (
     <div className="cat-card relative cursor-pointer h-[700px] overflow-hidden">
       <img
-        src={`/api/v1/category/get-category-photo/${data._id}`}
+        src={`${process.env.REACT_APP_BASE_URI}category/get-category-photo/${data._id}`}
         className={`h-[100%] w-[100%]  object-cover }`}
         alt=""
       />

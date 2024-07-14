@@ -27,7 +27,7 @@ const OrdersProvider = ({ children }) => {
     };
 
     try {
-      await axios.post("/api/v1/orders/create-order", combinedData);
+      await axios.post(`${process.env.REACT_APP_BASE_URI}orders/create-order`, combinedData);
     } catch (error) {
       console.log("error", error);
     }
@@ -36,7 +36,7 @@ const OrdersProvider = ({ children }) => {
   const getSpecificUsersOrders = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     try {
-      const { data } = await axios.get(`/api/v1/orders//user-orders/${user.user._id}`);
+      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URI}orders//user-orders/${user.user._id}`);
       setUsersOrders(data.orders);
     } catch (error) {}
   };

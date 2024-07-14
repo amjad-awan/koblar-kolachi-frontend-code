@@ -15,7 +15,7 @@ const SearchProducts = ({ setOpenSearch, openSearch }) => {
       if (searchTerm) {
         setLoading(true);
         const { data } = await axios.get(
-          `/api/v1/product/search-products/${searchTerm}`
+          `${process.env.REACT_APP_BASE_URI}product/search-products/${searchTerm}`
         );
         setSearch(data);
         setLoading(false);
