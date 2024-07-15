@@ -20,9 +20,9 @@ const Checkouts = () => {
       <div className="">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="min-h-screen py-[70px] border-[#5c5c5c27] md:px-[50px] border-[1px] flex flex-col items-center ">
-            <Link className="text-[24px]  font-[600] mb-[40px]">
+            <p className="text-[24px]  font-[600] mb-[40px]">
               Cobbler & Kolachi
-            </Link>
+            </p>
             <CheckOutSteps steps={steps} />
           </div>
           <div className="min-h-screen px-[50px] py-[50px] bg-[#FAFAFA]">

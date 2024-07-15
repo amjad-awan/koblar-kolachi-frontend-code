@@ -3,11 +3,13 @@ import { Dialog, Transition } from "@headlessui/react";
 import { RxCross1 } from "react-icons/rx";
 import { useProducts } from "../../context/ProductContext";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const SideOverLay = ({ open, setOpen }) => {
+  const navigate = useNavigate()
+  const { user } = useAuth()
   const { cart, removeFromCart } = useProducts();
-  console.log("cart", cart)
 
 
   const handleRemove = (producToRemove) => {
@@ -90,7 +92,7 @@ const SideOverLay = ({ open, setOpen }) => {
                                     {data.productname}
                                   </p>
                                   <p className="text-[15px] text-[#5c5c5c] font-[500] mt-2">
-                                  {data.showSize.value}
+                                    {data.showSize.value}
                                   </p>
                                   <p className="text-[15px] text-[#5c5c5c] font-[500] mt-2">
                                     Rs.{data.newprice} PKR
@@ -112,14 +114,19 @@ const SideOverLay = ({ open, setOpen }) => {
                         <p className="text-[#5c5c5c] text-[20px] font-[500]">Shipping & taxes calculated at checkout</p>
 
                         <div className="w-[100%] mt-[20px]">
-                          <button to="/checkouts" className="__button w-[100%]">
-                          <Link to="/checkouts" >
+                          <button onClick={() => {
+                            if (!user) {
+                             return toast.error("You must login first")
+                            }
+                            navigate("/checkouts")
+                          }} className="__button w-[100%]">
+                            {/* <Link to="/checkouts" > */}
                             <span className="uppercase">check out</span>
                             <span className="uppercase">check out</span>{" "}
-                          </Link>
+                            {/* </Link> */}
                           </button>
 
-                        
+
                         </div>
                       </div>
                     </div>

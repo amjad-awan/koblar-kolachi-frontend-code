@@ -36,7 +36,7 @@ const OrdersProvider = ({ children }) => {
   const getSpecificUsersOrders = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URI}orders//user-orders/${user.user._id}`);
+      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URI}orders/user-orders/${user.user._id}`);
       setUsersOrders(data.orders);
     } catch (error) {}
   };

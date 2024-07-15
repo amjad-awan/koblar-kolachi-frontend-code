@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Collapse, initTE } from "tw-elements";
 import { useProducts } from "../../context/ProductContext";
 
-function PaymentMethodAccordion() {
-  const { setCartStepper,cartStepper } = useProducts();
+function PaymentMethodAccordion({ paymentMethodError, setPaymentMethodError }) {
+  const { setCartStepper, cartStepper } = useProducts();
+
+  const handlePaymentMethod=(e)=>{
+    setPaymentMethodError(false)
+    setCartStepper({ ...cartStepper, paymentMethod: e.target.value })
+
+  }
 
   useEffect(() => {
     initTE({ Collapse });
@@ -23,12 +29,13 @@ function PaymentMethodAccordion() {
           >
             <div className="flex items-center px-5 mr-[20px]">
               <input
-          id="COD"
-          name="notification-method"
-          type="radio"
-          onChange={(e) => setCartStepper({ ...cartStepper, paymentMethod: "COD" })}
-          defaultChecked={false} // Assuming you want it unchecked by default
-          className="h-4 w-4 border-gray-300 text-[#000] focus:ring-[#000]"
+                id="COD"
+                name="notification-method"
+                type="radio"
+                value="COD"
+                onChange={handlePaymentMethod}
+                checked={cartStepper.paymentMethod==="COD"}
+                className="h-4 w-4 border-gray-300 text-[#000] focus:ring-[#000]"
               />
             </div>
             <label
@@ -74,8 +81,9 @@ function PaymentMethodAccordion() {
                 id="BankDeposit"
                 name="notification-method"
                 type="radio"
-                defaultChecked={false}
-                onChange={(e) => setCartStepper({ ...cartStepper, paymentMethod: "Bank Deposit" })}
+                value="Bank Deposit"
+                onChange={handlePaymentMethod}
+                checked={cartStepper.paymentMethod==="Bank Deposit"}
                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
               />
             </div>
@@ -129,7 +137,10 @@ function PaymentMethodAccordion() {
                 name="notification-method"
                 type="radio"
                 defaultChecked={false}
-                onChange={(e) => setCartStepper({ ...cartStepper, paymentMethod: "Jazz Cash" })}
+                value="Jazz Cash" 
+                onChange={handlePaymentMethod}
+                checked={cartStepper.paymentMethod==="Jazz Cash"}
+                // onChange={(e) => setCartStepper({ ...cartStepper, paymentMethod: "Jazz Cash" })}
                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
               />
             </div>
@@ -162,6 +173,9 @@ function PaymentMethodAccordion() {
           </div>
         </div>
       </div>
+      {
+        paymentMethodError && <div className="text-red-500">Must Select payment method</div>
+      }
     </div>
   );
 }

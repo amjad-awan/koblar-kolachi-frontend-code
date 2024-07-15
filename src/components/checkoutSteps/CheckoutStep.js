@@ -7,6 +7,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useProducts } from "../../context/ProductContext";
 import { useOrders } from "../../context/OrdersContext";
+import { useAuth } from "../../context/AuthContext";
+import toast from "react-hot-toast";
 const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is required"),
   country: Yup.object().required("country/Region is required"),
@@ -18,9 +20,14 @@ const validationSchema = Yup.object({
   phone: Yup.string().required("Phone No. is required"),
 });
 const CheckOutSteps = ({ steps }) => {
+ const {user}= useAuth()
+
   const [activeStep, setActiveStep] = useState(0);
   const [formData, setFormData] = useState({});
   const { setCartStepper,cartStepper, cart, cartData } = useProducts();
+  console.log("user", user,cartStepper)
+  const [paymentMethodError, setPaymentMethodError] = useState(false);
+
   const {createOrders}=useOrders()
   const [completedSteps, setCompletedSteps] = useState([]);
   const formik = useFormik({
@@ -37,6 +44,15 @@ const CheckOutSteps = ({ steps }) => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
+      if(
+        !cartStepper.paymentMethod&& activeStep === steps.length - 1
+      )
+      {
+        setPaymentMethodError(true)
+      }
+      if(!user && activeStep === steps.length - 1 ){
+       return toast.error("You must be login")
+      }
 
       try {
          // Handle form submission here
@@ -121,12 +137,12 @@ const CheckOutSteps = ({ steps }) => {
             <label htmlFor="email" className="text-22 font-600">
               Contact
             </label>
-            <p>
+            {/* <p>
               Have an account{" "}
               <Link to="/acount/auth" className="underline mr-20">
                 Login
               </Link>
-            </p>
+            </p> */}
           </div>
           <input
             type="text"
@@ -364,7 +380,7 @@ const CheckOutSteps = ({ steps }) => {
               </label>
               <p>All transactions are secure and encrypted.</p>
             </div>
-            <PaymentMethodAccordion />
+            <PaymentMethodAccordion paymentMethodError={paymentMethodError}  setPaymentMethodError={setPaymentMethodError}/>
           </div>
         </>
       )}
@@ -384,6 +400,7 @@ const CheckOutSteps = ({ steps }) => {
         <button
           type="submit"
           onClick={() => {
+        
             formik.handleSubmit();
             // Add any additional logic you want to perform when the button is clicked here
           }}
@@ -397,6 +414,14 @@ const CheckOutSteps = ({ steps }) => {
           {activeStep === steps.length - 1 ? "Finish" : "Next"}
         </button>
       </div>
+      <div className="mt-[50px]">
+         
+              <Link to="/" className="underline mr-20">
+               Go to home
+              </Link>
+            
+        </div>
+
     </div>
   );
 };
